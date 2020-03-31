@@ -4,7 +4,7 @@
 #
 # Olivier Corby - Wimmics, Inria, I3S - 2015
 #
-prefix cal: <http://127.0.0.1/sparql-extension/calendar#>
+prefix cal: <http://127.0.0.1:5000/sparql-extension/calendar#>
 select
 
 (cal:jour(now()) as ?fr)
