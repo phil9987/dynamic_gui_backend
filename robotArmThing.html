@@ -5,8 +5,8 @@
     xhr.setRequestHeader("Content-Type", "application/sparql-query");
     xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
     //data = 'PREFIX cal: <http://ns.inria.fr/sparql-extension/calendar#> SELECT (cal:div(4,2) AS ?result) WHERE { }'
-    data = 'PREFIX cal: <http://lvh.me:5000/calendar#> SELECT (cal:div(4,2) AS ?result) WHERE { }'
-    //data = 'PREFIX util: <http://lvh.me:8000/example.ldscript.txt#> SELECT (util:inverse_kinematics(8, 2, 4) AS ?result) WHERE { }';
+    data = 'PREFIX cal: <http://127.0.0.1:5000/calendar#> SELECT (cal:div(4,2) AS ?result) WHERE { }'
+    //data = 'PREFIX util: <http://127.0.0.1:5000/sparql-extension/util#> SELECT (util:inverse_kinematics(8, 2, 4) AS ?result) WHERE { }';
     //data = 'PREFIX ex: <htp://example.org/> SELECT (ex:inverse_kinematics(1,2,3) AS ?result) WHERE { }  function ex:inverse_kinematics(?X, ?Y, ?Z) { "11,22,33,44,55" }'
     xhr.onload = (e) => {
         console.log(xhr.responseText);
