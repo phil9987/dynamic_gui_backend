@@ -4,8 +4,8 @@
 #
 # Olivier Corby - Wimmics, Inria, I3S - 2015
 #
-prefix cal: <http://ns.inria.fr/sparql-extension/calendar#>
-select 
+prefix cal: <http://127.0.0.1/sparql-extension/calendar#>
+select
 
 (cal:jour(now()) as ?fr)
 
@@ -28,7 +28,7 @@ function cal:bisextile(?y) {
     ((cal:mod(?y, 4) = 0) &&
       ((cal:mod(?y, 100) != 0) || (cal:mod(?y, 400) = 0)))
 }
-      
+
 function cal:ab(?y) { cal:div(?y, 100)}
 function cal:cd(?y) { cal:mod(?y, 100)}
 function cal:k(?y)  { cal:div(cal:cd(?y), 4)}
@@ -46,7 +46,7 @@ function cal:monthday(?m, ?y) {
 	  if (?m in (10), 4,
 	    if (?m in (5), 5, 6)))))))
 }
-	    
+
 function cal:get(?y, ?m, ?d) {
   let (?n = cal:k(?y) + cal:q(?y) + cal:cd(?y) +
         cal:monthday(?m, ?y) + ?d + 2 + 5 * cal:ab(?y))
@@ -54,11 +54,11 @@ function cal:get(?y, ?m, ?d) {
       cal:mod(?n, 7)
     }
 }
-    
+
 function cal:find(?d) {
   cal:get(year(?d), month(?d), day(?d))
 }
-  
+
 function cal:en(?n) {
   if (?n = 0, "Sunday",
   if (?n = 1, "Monday",
@@ -68,7 +68,7 @@ function cal:en(?n) {
   if (?n = 5, "Friday",
   if (?n = 6, "Saturday", "Unknown")))))))
 }
-  
+
 function cal:fr(?n) {
   if (?n = 0, "Dimanche",
   if (?n = 1, "Lundi",
@@ -90,8 +90,8 @@ function cal:num(?day) {
 }
 
 function cal:days(?y, ?m) {
-    let (?list = 
-	xt:list(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)){ 
+    let (?list =
+	xt:list(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)){
         if (?m != 2, xt:get(?list, ?m - 1),
             if (cal:bisextile(?y), 29, 28))
     }
