@@ -5,11 +5,11 @@
 # Olivier Corby - Wimmics, Inria, I3S - 2015
 #
 prefix cal: <http://127.0.0.1:5000/sparql-extension/calendar#>
-select
+#select
 
-(cal:jour(now()) as ?fr)
+#(cal:jour(now()) as ?fr)
 
-where  { }
+#where  { }
 
 @public {
 function xt:day(?d)  { cal:day(?d)}

@@ -1,14 +1,11 @@
+# Sample Inverse Kinematics Function
+# 02.04.2020 Philip Junker
 #
-# Compute the day of a date
-# http://fr.wikipedia.org/wiki/Détermination_du_jour
-#
-# Philip Junker - Inverse Kinematics for Poppy Ergo Jr
-#
-# prefix xt: <http://ns.inria.fr/sparql-extension/>
-# prefix util: <http://http://lvh.me:8000/example.ldscript.txt#>
+prefix util: <http://127.0.0.1:5000/sparql-extension/util#>
+
 
 @public {
     function util:inverse_kinematics(?X, ?Y, ?Z) {
-        xt:list(11, 22, 33, 44, 55, 66)
+        xt:list(X, Y, Z, 44, 55, 66)
     }
 }
